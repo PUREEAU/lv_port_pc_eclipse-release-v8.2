@@ -9,7 +9,7 @@ lv_obj_t * backgroundScreen = NULL;
 lv_obj_t * top_status_bar = NULL;
 lv_obj_t * bottom_status_bar = NULL;
 
-uint16_t mainmenukeyboardNavPointer = 0;
+uint16_t mainmenukeyboardNavPointer = 1;
 uint8_t shutdownDevice = 0;
 
 static void mainMenuButtonChonice_event_cb(lv_event_t * e){
@@ -101,6 +101,7 @@ void settingsModeInterface(void){
     lv_obj_clean(bottom_status_bar);
     lv_obj_set_style_pad_hor(bottom_status_bar,0,LV_STATE_DEFAULT);// 设置水平内边距
     lv_obj_set_style_pad_ver(bottom_status_bar,0,LV_STATE_DEFAULT);// 设置垂直内边距
+
     // lv_obj_set_layout(bottom_status_bar,LV_LAYOUT_GRID);
 
     // static lv_coord_t col_dsc[] = {LV_GRID_FR(1),LV_GRID_FR(3),LV_GRID_TEMPLATE_LAST};
@@ -135,10 +136,18 @@ void settingsModeInterface(void){
 
     lv_obj_t * settingMode_TabView = lv_tabview_create(bottom_status_bar,LV_DIR_LEFT,96);
 
-    lv_obj_t * tab1 = lv_tabview_add_tab(settingMode_TabView,"About");
-    lv_obj_t * tab2 = lv_tabview_add_tab(settingMode_TabView,"System");
-    lv_obj_t * tab3 = lv_tabview_add_tab(settingMode_TabView,"About1");
-    lv_obj_t * tab4 = lv_tabview_add_tab(settingMode_TabView,"System2");
+    lv_obj_t * settingMode_TabView_TabBtn = lv_tabview_get_tab_btns(settingMode_TabView);
+    lv_obj_set_style_bg_color(settingMode_TabView_TabBtn, lv_color_hex(0xD2E0CF), 0);
+    lv_obj_set_style_bg_color(settingMode_TabView_TabBtn, lv_color_hex(0xD2E0CF), LV_PART_ITEMS | LV_STATE_CHECKED);
+    lv_obj_set_style_border_side(settingMode_TabView_TabBtn, LV_BORDER_SIDE_BOTTOM, LV_PART_ITEMS | LV_STATE_CHECKED);
+    lv_obj_set_style_border_width(settingMode_TabView_TabBtn, 3, LV_PART_ITEMS | LV_STATE_CHECKED);
+    lv_obj_set_style_border_color(settingMode_TabView_TabBtn, lv_color_hex(0x2E8B57), LV_PART_ITEMS | LV_STATE_CHECKED);
+
+    lv_obj_t * About_tab = lv_tabview_add_tab(settingMode_TabView,"About");
+    lv_obj_t * Status_tab = lv_tabview_add_tab(settingMode_TabView,"Status");
+    lv_obj_t * Update_tab = lv_tabview_add_tab(settingMode_TabView,"Update");
+    lv_obj_t * Screen_tab = lv_tabview_add_tab(settingMode_TabView,"Screen");
+
 }
 
 
