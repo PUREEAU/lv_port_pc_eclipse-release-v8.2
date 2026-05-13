@@ -137,11 +137,18 @@ void settingsModeInterface(void){
     lv_obj_t * settingMode_TabView = lv_tabview_create(bottom_status_bar,LV_DIR_LEFT,96);
 
     lv_obj_t * settingMode_TabView_TabBtn = lv_tabview_get_tab_btns(settingMode_TabView);
-    lv_obj_set_style_bg_color(settingMode_TabView_TabBtn, lv_color_hex(0xD2E0CF), 0);
-    lv_obj_set_style_bg_color(settingMode_TabView_TabBtn, lv_color_hex(0xD2E0CF), LV_PART_ITEMS | LV_STATE_CHECKED);
-    lv_obj_set_style_border_side(settingMode_TabView_TabBtn, LV_BORDER_SIDE_BOTTOM, LV_PART_ITEMS | LV_STATE_CHECKED);
-    lv_obj_set_style_border_width(settingMode_TabView_TabBtn, 3, LV_PART_ITEMS | LV_STATE_CHECKED);
+    lv_obj_set_style_bg_color(settingMode_TabView_TabBtn, lv_color_hex(0xD2E0CF), LV_PART_ITEMS);
+    lv_obj_set_style_bg_color(settingMode_TabView_TabBtn, lv_color_hex(0xD2E0CF), LV_PART_ITEMS | LV_STATE_PRESSED);
+    
+    lv_obj_set_style_bg_color(settingMode_TabView_TabBtn, lv_color_hex(0x81C784), LV_PART_ITEMS | LV_STATE_CHECKED);
+    lv_obj_set_style_border_width(settingMode_TabView_TabBtn,3,LV_PART_ITEMS | LV_STATE_CHECKED);
+    
+    lv_obj_set_style_border_side(settingMode_TabView_TabBtn,LV_BORDER_SIDE_RIGHT,LV_PART_ITEMS | LV_STATE_CHECKED);
+    
     lv_obj_set_style_border_color(settingMode_TabView_TabBtn, lv_color_hex(0x2E8B57), LV_PART_ITEMS | LV_STATE_CHECKED);
+    lv_obj_set_style_border_width(settingMode_TabView_TabBtn,3,LV_PART_ITEMS | LV_STATE_PRESSED);
+    lv_obj_set_style_border_side(settingMode_TabView_TabBtn,LV_BORDER_SIDE_RIGHT,LV_PART_ITEMS | LV_STATE_PRESSED);
+    lv_obj_set_style_border_color(settingMode_TabView_TabBtn, lv_color_hex(0x2E8B57), LV_PART_ITEMS | LV_STATE_PRESSED);
 
     lv_obj_t * About_tab = lv_tabview_add_tab(settingMode_TabView,"About");
     lv_obj_t * Status_tab = lv_tabview_add_tab(settingMode_TabView,"Status");
