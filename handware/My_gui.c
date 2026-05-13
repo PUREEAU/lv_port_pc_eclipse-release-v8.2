@@ -217,12 +217,69 @@ void settingsModeInterface(void){
         Temperture_voltage);
     lv_label_set_text(Status_ContentLabel, Setting_ContentLabel_text);
 
+    lv_obj_t * Screen_Titlelabel = lv_label_create(Screen_tab);
+    lv_label_set_recolor(Screen_Titlelabel, true);
+    lv_label_set_text(Screen_Titlelabel,"#0000FF PureEau  # #007000 Screen  # #FF0000 Setting#");
+    lv_obj_align(Screen_Titlelabel, LV_ALIGN_TOP_MID,0,10);
+    lv_obj_t * Screen_ContentLabel = lv_label_create(Screen_tab);
+    lv_obj_set_pos(Screen_ContentLabel, 5, 40);
+    snprintf(Setting_ContentLabel_text, sizeof(Setting_ContentLabel_text),
+        "#FF0000 Set screen background brightness #");
+    lv_label_set_recolor(Screen_ContentLabel, true);
+    lv_label_set_text(Screen_ContentLabel, Setting_ContentLabel_text);
+
+lv_obj_t * Screen_BrightnessSlider = lv_slider_create(Screen_tab);
+lv_obj_set_size(Screen_BrightnessSlider, 320, 30);
+lv_obj_center(Screen_BrightnessSlider);
+// lv_obj_set_style_radius(Screen_BrightnessSlider, LV_RADIUS_CIRCLE, LV_PART_KNOB);
+
+lv_obj_set_style_bg_color(Screen_BrightnessSlider, lv_color_hex(0x6262eb), LV_PART_INDICATOR);
+lv_obj_set_style_bg_color(Screen_BrightnessSlider, lv_color_hex(0x9696db), LV_PART_KNOB);
+lv_obj_set_style_bg_color(Screen_BrightnessSlider, lv_color_hex(0x5b5bdb), LV_PART_MAIN);
+lv_obj_set_style_radius(Screen_BrightnessSlider, LV_RADIUS_CIRCLE, LV_PART_MAIN);
+lv_obj_set_style_radius(Screen_BrightnessSlider, LV_RADIUS_CIRCLE, LV_PART_KNOB);
+lv_slider_set_range(Screen_BrightnessSlider, 0, 100);
+lv_slider_set_mode(Screen_BrightnessSlider, LV_SLIDER_MODE_NORMAL);
+lv_obj_add_flag(Screen_BrightnessSlider, LV_OBJ_FLAG_ADV_HITTEST);
+lv_slider_set_value(Screen_BrightnessSlider, 0, LV_ANIM_OFF);
+
+    // static lv_style_t style_main;
+    // static lv_style_t style_indicator;
+    // static lv_style_t style_knob;
+    // lv_style_init(&style_main);
+    // lv_style_set_bg_opa(&style_main, LV_OPA_COVER);
+    // lv_style_set_bg_color(&style_main, lv_color_hex3(0xbbb));
+    // lv_style_set_radius(&style_main, LV_RADIUS_CIRCLE);
+    // lv_style_set_pad_ver(&style_main, -2); /*Makes the indicator larger*/
+
+    // lv_style_init(&style_indicator);
+    // lv_style_set_bg_opa(&style_indicator, LV_OPA_COVER);
+    // lv_style_set_bg_color(&style_indicator, lv_palette_main(LV_PALETTE_CYAN));
+    // lv_style_set_radius(&style_indicator, LV_RADIUS_CIRCLE);
+
+    // lv_style_init(&style_knob);
+    // lv_style_set_bg_opa(&style_knob, LV_OPA_COVER);
+    // lv_style_set_bg_color(&style_knob, lv_palette_main(LV_PALETTE_CYAN));
+    // lv_style_set_border_color(&style_knob, lv_palette_darken(LV_PALETTE_CYAN, 3));
+    // lv_style_set_border_width(&style_knob, 2);
+    // lv_style_set_radius(&style_knob, LV_RADIUS_CIRCLE);
+    // lv_style_set_pad_all(&style_knob, 6); 
+
+    // /*Create a slider and add the style*/
+    // lv_obj_t * slider = lv_slider_create(lv_scr_act());
+    // lv_obj_remove_style_all(slider);        /*Remove the styles coming from the theme*/
+    // lv_obj_add_style(slider, &style_main, LV_PART_MAIN);
+    // lv_obj_add_style(slider, &style_indicator, LV_PART_INDICATOR);
+    // lv_obj_add_style(slider, &style_knob, LV_PART_KNOB);
+
+
 
     static lv_style_t settingText_LineSpace;
     lv_style_init(&settingText_LineSpace);
     lv_style_set_text_line_space(&settingText_LineSpace, 15); 
     lv_obj_add_style(About_ContentLabel, &settingText_LineSpace, 0);
     lv_obj_add_style(Status_ContentLabel, &settingText_LineSpace, 0);
+    lv_obj_add_style(Screen_ContentLabel, &settingText_LineSpace, 0);
 
 }
 
