@@ -64,6 +64,7 @@ int main(int argc, char **argv)
   /*Initialize the HAL (display, input devices, tick) for LVGL*/
   hal_init();
   createMainInterface();
+  
   while(1) {
       my_gui();
       lv_timer_handler();

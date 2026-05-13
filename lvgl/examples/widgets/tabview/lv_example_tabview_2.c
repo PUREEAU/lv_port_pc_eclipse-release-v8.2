@@ -17,7 +17,7 @@ void lv_example_tabview_2(void)
     tabview = lv_tabview_create(lv_scr_act(), LV_DIR_LEFT, 80);
     lv_obj_add_event_cb(lv_tabview_get_content(tabview), scroll_begin_event, LV_EVENT_SCROLL_BEGIN, NULL);
 
-    lv_obj_set_style_bg_color(tabview, lv_palette_lighten(LV_PALETTE_RED, 2), 0);
+    lv_obj_set_style_bg_color(tabview, lv_palette_lighten(LV_PALETTE_GREY, 2), 0);
 
     lv_obj_t * tab_btns = lv_tabview_get_tab_btns(tabview);
     lv_obj_set_style_bg_color(tab_btns, lv_palette_darken(LV_PALETTE_GREY, 3), 0);
